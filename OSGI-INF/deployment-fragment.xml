@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<fragment version="1">
+  <require>org.nuxeo.web.ui</require>
+  <install>
+    <delete path="${bundle.fileName}.tmp"/>
+    <!-- The folder structure for the messages is choosen to match that of nuxeo-web-ui -->
+    <unzip from="${bundle.fileName}" to="${bundle.fileName}.tmp" prefix="web">
+      <include>web/nuxeo.war/**</include>
+    </unzip>
+    <append from="${bundle.fileName}.tmp/nuxeo.war/ui/i18n/messages.json" to="nuxeo.war/ui/i18n/messages.json"/>
+    <delete path="${bundle.fileName}.tmp"/>
+  </install>
+</fragment>

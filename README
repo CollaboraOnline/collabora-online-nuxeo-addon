@@ -1,0 +1,42 @@
+Nuxeo Collabora Online Integration addon
+
+This addon allows to provide resources needed for Nuxeo to use Online's apps in discovery; display
+proper icons on relevant buttons (nuxeo-wopi-link); and show correct tooltips for those buttons.
+
+Build dependencies:
+ * jar (part of Java)
+ * python3
+
+build_addon.py script packs all files and creates the addon package in dest directory.
+
+Install dependencies:
+ * nuxeo-wopi addon (https://connect.nuxeo.com/nuxeo/site/marketplace/package/nuxeo-wopi)
+ * nuxeo-web-ui addon (part of Nuxeo server)
+
+To install:
+
+ nuxeoctl stop
+ nuxeoctl mp-install path/to/collaboraonline-nuxeo-wopi.zip
+
+Configure Nuxeo:
+ * edit nuxeo.conf, appending the lines, as described in nuxeo-wopi documentation at
+   https://doc.nuxeo.com/nxdoc/nuxeo-office-online-integration/ :
+
+    nuxeo.jwt.secret=<MySecretHere>
+    nuxeo.wopi.discoveryURL=https://online_host:port/hosting/discovery
+
+ * Note that you need to make sure that Nuxeo accepts Online's certificate. If you don't use Nuxeo
+   recommended method (https://doc.nuxeo.com/nxdoc/http-and-https-reverse-proxy-configuration/),
+   e,g. in testing environment, you may need to create a custom keystore for Nuxeo, add the needed
+   keys there, and append these lines to nuxeo.conf:
+
+    nuxeo.server.https.port=8443
+    nuxeo.server.https.keystoreFile=path/to/custom/keystore
+    nuxeo.server.https.keystorePass=keystorePass
+    nuxeo.url=https://www.mynuxeorerver.tld:8443/nuxeo
+
+ * You also need to configure Online's loolwsd.xml to accept Nuxeo wopi storage.
+
+Now start Nuxeo:
+
+ nuxeoctl start

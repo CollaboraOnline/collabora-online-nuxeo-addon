@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package type="addon" name="collaboraonline-nuxeo-wopi" version="1.0.0">
+  <title>Nuxeo Collabora Online Integration</title>
+  <description>
+    <p>The Nuxeo Collabora Online addon allows users to open and edit Office document in a Collabora Online web interface. Files are stored in Nuxeo, so they can leverage Nuxeo Platform features like versioning and locking. They can also be viewed, edited or co-authored by users. The Collabora Online integration uses WOPI, and requires Nuxeo Office Online addon.</p>
+  </description>
+  <vendor>Collabora Productivity</vendor>
+  <platforms>
+    <platform>server-11.*</platform>
+  </platforms>
+  <dependencies>
+    <package>nuxeo-wopi</package>
+  </dependencies>
+  <license>Apache 2.0</license>
+  <license-url>http://www.apache.org/licenses/LICENSE-2.0</license-url>
+</package>

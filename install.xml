@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<install>
+  <copy file="${package.root}/install/config/collaboraonline-wopi-config.xml" todir="${env.config}" />
+  <copy dir="${package.root}/install/images" todir="${env.home}/nuxeo.war/ui/images" />
+  <update file="${package.root}/install/bundles" todir="${env.bundles}" />
+</install>

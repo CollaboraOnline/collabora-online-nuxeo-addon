@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<component name="com.collaboraonline.wopi.properties">
+
+  <require>org.nuxeo.wopi.properties</require>
+
+  <extension target="org.nuxeo.runtime.ConfigurationService" point="configuration">
+    <property name="org.nuxeo.wopi.supportedAppNames">writer</property>
+    <property name="org.nuxeo.wopi.supportedAppNames">calc</property>
+    <property name="org.nuxeo.wopi.supportedAppNames">impress</property>
+    <property name="org.nuxeo.wopi.supportedAppNames">draw</property>
+  </extension>
+
+</component>
