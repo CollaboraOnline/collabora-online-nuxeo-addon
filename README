@@ -19,13 +19,15 @@ To install:
  nuxeoctl mp-install path/to/collaboraonline-nuxeo-wopi.zip
 
 Configure Nuxeo:
+
  * edit nuxeo.conf, appending the lines, as described in nuxeo-wopi documentation at
    https://doc.nuxeo.com/nxdoc/nuxeo-office-online-integration/ :
 
     nuxeo.jwt.secret=<MySecretHere>
     nuxeo.wopi.discoveryURL=https://online_host:port/hosting/discovery
 
- * Note that you need to make sure that Nuxeo accepts Online's certificate. If you don't use Nuxeo
+ * Note that you need to make sure that Nuxeo accepts Online's certificate. Also you need to use
+   HTTPS with Nuxeo, or else using HTTPS for iframe will be rejected. If you don't use Nuxeo
    recommended method (https://doc.nuxeo.com/nxdoc/http-and-https-reverse-proxy-configuration/),
    e,g. in testing environment, you may need to create a custom keystore for Nuxeo, add the needed
    keys there, and append these lines to nuxeo.conf:
@@ -33,7 +35,7 @@ Configure Nuxeo:
     nuxeo.server.https.port=8443
     nuxeo.server.https.keystoreFile=path/to/custom/keystore
     nuxeo.server.https.keystorePass=keystorePass
-    nuxeo.url=https://www.mynuxeorerver.tld:8443/nuxeo
+    nuxeo.url=https://www.mynuxeoserver.tld:8443/nuxeo
 
  * You also need to configure Online's loolwsd.xml to accept Nuxeo wopi storage.
 
